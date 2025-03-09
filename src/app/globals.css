@@ -5,8 +5,8 @@
   --accent: #d62f77;
   --heading: #2e0014;
   --body: #5e5257;
-  --background: #fbf9fa;
-  --transparent: rgba(206, 37, 79, 0.06);
+  --background: #d9d6d7;
+  --clear: rgba(206, 37, 79, 0.06);
 }
 
 .dark {
@@ -14,7 +14,7 @@
   --heading: #dcdcdc;
   --body: #c9bdc2;
   --background: #12090d;
-  --transparent: rgba(40, 1, 18, 0.21);
+  --clear: rgba(40, 1, 18, 0.21);
 }
 
 @theme inline {
@@ -25,11 +25,11 @@
   --color-heading: var(--heading);
   --color-body: var(--body);
   --color-background: var(--background);
-  --color-transparent: var(--transparent);
+  --color-clear: var(--clear);
 }
 
 body {
-  @apply bg-background text-body font-sans antialiased;
+  @apply bg-background text-body font-sans antialiased transition-all duration-700 ease-in-out;
 }
 
 b {

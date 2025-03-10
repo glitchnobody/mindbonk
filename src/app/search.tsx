@@ -16,6 +16,7 @@ export default function Search(props: SearchProps) {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+        e.preventDefault();
         inputRef.current?.focus();
         props.setFocused(true);
       }
@@ -24,6 +25,7 @@ export default function Search(props: SearchProps) {
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {

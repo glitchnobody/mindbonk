@@ -4,6 +4,7 @@ import Logo from './logo';
 import { Icon } from '@iconify/react';
 import { useTheme } from 'next-themes';
 import Search from './search';
+import Link from 'next/link';
 
 export default function NavBar() {
   const [mounted, setMounted] = useState(false);
@@ -21,9 +22,9 @@ export default function NavBar() {
   return (
     <nav className="fixed left-0 top-0 z-50 w-full">
       <div className="border-body flex h-16 w-full items-center justify-between gap-4 border-b px-3 py-1.5">
-        <div className="aspect-[100/88.45] h-full">
+        <Link href="/" className="aspect-[100/88.45] h-full">
           <Logo />
-        </div>
+        </Link>
         <Search
           focused={focused}
           setFocused={setFocused}
@@ -64,7 +65,19 @@ export default function NavBar() {
         </div>
       </div>
 
-      <div className="border-body h-12 w-full border-b"></div>
+      <div className="border-body flex h-8 w-full items-center justify-between border-b px-3.5">
+        <div className="text-accent font-display flex items-center gap-4 text-base font-medium">
+          <Link className="hover:underline" href="/articles">
+            Articles
+          </Link>
+          <Link className="hover:underline" href="/colophon">
+            Colophon
+          </Link>
+          <Link className="hover:underline" href="/about">
+            About
+          </Link>
+        </div>
+      </div>
     </nav>
   );
 }

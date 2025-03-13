@@ -40,7 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${montserratSans.variable} ${atkinsonHyperlegible.variable} ${geistMono.variable} m-auto px-3 font-sans antialiased`}
+        className={`${montserratSans.variable} ${atkinsonHyperlegible.variable} ${geistMono.variable} max-w-420 relative mx-auto px-3 font-sans antialiased`}
       >
         <ThemeProvider
           attribute="class"
@@ -49,7 +49,7 @@ export default function RootLayout({
           disableTransitionOnChange={false}
         >
           <NavBar />
-          {children}
+          <main className="mt-24"> {children}</main>
         </ThemeProvider>
       </body>
     </html>

@@ -20,7 +20,7 @@ export default function NavBar() {
   }
 
   return (
-    <nav className="fixed left-0 top-0 z-50 w-full">
+    <nav className="max-w-420 fixed top-0 z-50 w-full">
       <div className="border-body flex h-16 w-full items-center justify-between gap-4 border-b px-3 py-1.5">
         <Link href="/" className="aspect-[100/88.45] h-full">
           <Logo />

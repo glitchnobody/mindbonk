@@ -1,15 +1,37 @@
-import createMDX from "@next/mdx";
+import createMDX from '@next/mdx';
+import remarkFrontmatter from 'remark-frontmatter';
+import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
+import remarkToc from 'remark-toc';
+import remarkGfm from 'remark-gfm';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeSlug from 'rehype-slug';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Configure `pageExtensions` to include markdown and MDX files
-  pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
-  // Optionally, add any other Next.js config below
+  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
 };
 
 const withMDX = createMDX({
-  // Add markdown plugins here, as desired
+  options: {
+    remarkPlugins: [
+      remarkGfm,
+      remarkFrontmatter,
+      [remarkMdxFrontmatter, { name: 'meta' }],
+      [remarkToc, { heading: 'contents', tight: true }],
+    ],
+    rehypePlugins: [
+      rehypeSlug,
+      [
+        rehypeAutolinkHeadings,
+        {
+          behavior: 'wrap',
+          properties: {
+            className: ['anchor'],
+          },
+        },
+      ],
+    ],
+  },
 });
 
-// Merge MDX config with Next.js config
 export default withMDX(nextConfig);

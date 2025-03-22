@@ -20,9 +20,13 @@ export default function NavBar() {
   }
 
   return (
-    <nav className="max-w-420 fixed top-0 z-50 w-full">
-      <div className="border-body flex h-16 w-full items-center justify-between gap-4 border-b px-3 py-1.5">
-        <Link href="/" className="aspect-[100/88.45] h-full">
+    <nav className="color_transition fixed left-0 top-0 z-50 flex w-full flex-col items-center">
+      <div className="border-body color_transition max-w-420 flex h-16 w-full items-center justify-between gap-4 border-b px-3 py-1.5">
+        <Link
+          aria-label="home page"
+          href="/"
+          className="aspect-[100/88.45] h-full"
+        >
           <Logo />
         </Link>
         <Search
@@ -58,17 +62,17 @@ export default function NavBar() {
               setFocused(!focused);
             }}
             aria-label="search toggle"
-            className="border-accent bg-clear flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg border hover:opacity-80"
+            className="border-accent bg-clear flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg border hover:opacity-80 md:hidden"
           >
             <Icon icon="eva:search-outline" className="text-accent text-2xl" />
           </button>
         </div>
       </div>
 
-      <div className="border-body flex h-8 w-full items-center justify-between border-b px-3.5">
-        <div className="text-accent font-display flex items-center gap-4 text-base font-medium">
-          <Link className="hover:underline" href="/articles">
-            Articles
+      <div className="border-body color_transition max-w-420 flex h-8 w-full items-center justify-between border-b px-3.5">
+        <div className="text-body font-display text-basefont-medium flex items-center gap-4">
+          <Link className="hover:underline" href="/posts">
+            Posts
           </Link>
           <Link className="hover:underline" href="/colophon">
             Colophon

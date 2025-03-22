@@ -49,7 +49,7 @@ export default function RootLayout({
           disableTransitionOnChange={false}
         >
           <NavBar />
-          <main className="mt-24"> {children}</main>
+          <main className="max-w-420 mx-auto mt-24"> {children}</main>
         </ThemeProvider>
       </body>
     </html>

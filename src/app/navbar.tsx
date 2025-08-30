@@ -65,7 +65,7 @@ export default function NavBar() {
                 )}
               </div>
             </button>
-            <button
+            {/* <button
               onClick={() => {
                 setFocused(!focused);
               }}
@@ -76,7 +76,7 @@ export default function NavBar() {
                 icon="eva:search-outline"
                 className="text-accent text-2xl"
               />
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

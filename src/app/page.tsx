@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 import { useEffect, useState } from 'react';
 import type { MetaData } from '@/components/PostUtil';
@@ -29,29 +30,33 @@ export default function Home() {
       </section>
       <section className="mx-auto grid w-full max-w-[1240px] grid-cols-1 gap-4 md:grid-cols-2">
         {posts.map((post) => (
-          <div key={post.slug} className="flex flex-col gap-2 py-4">
-            <img
-              src={post.cover}
-              alt={post.title}
-              className="h-auto w-full rounded-lg"
-            />
-            <Link href={`/posts/${post.slug}`}>
+          <div key={post.slug}>
+            <Link
+              className="flex flex-col gap-2 py-4"
+              href={`/posts/${post.slug}`}
+            >
+              {' '}
+              <img
+                src={post.cover}
+                alt={post.title}
+                className="h-auto w-full rounded-lg"
+              />
               <h2 className="text-xl font-bold">{post.title}</h2>
+              <p className="text-base">{post.description}</p>
+              <hr className="opacity-20" />
+              <div className="flex items-center gap-2 text-sm">
+                <span className="text-accent">By {post.author}</span>
+                <span>•</span>
+                <span>{post.timeToRead} min read</span>
+              </div>
+              <div className="flex gap-2 text-sm">
+                {post.tags.map((tag) => (
+                  <span key={tag} className="text-accent text-sm">
+                    #{tag}
+                  </span>
+                ))}
+              </div>
             </Link>
-            <p className="text-base">{post.description}</p>
-            <hr className="opacity-20" />
-            <div className="flex items-center gap-2 text-sm">
-              <span className="text-accent">By {post.author}</span>
-              <span>•</span>
-              <span>{post.timeToRead} min read</span>
-            </div>
-            <div className="flex gap-2 text-sm">
-              {post.tags.map((tag) => (
-                <span key={tag} className="text-accent text-sm">
-                  #{tag}
-                </span>
-              ))}
-            </div>
           </div>
         ))}
       </section>

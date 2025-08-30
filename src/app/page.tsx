@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import type { MetaData } from '@/components/PostUtil';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Home() {
   const [posts, setPosts] = useState<MetaData[]>([]);
@@ -22,23 +23,29 @@ export default function Home() {
           <h1 aria-labelledby="welcome to mindbonk" className="w-full py-2">
             <TextHeading />
           </h1>
-          <span className="text-accent text-2xl">By Priyamvada Nile</span>
+          <span className="text-accent text-2xl">By Priyamvada N</span>
         </div>
         <hr />
       </section>
-      <section>
+      <section className="mx-auto grid w-full max-w-[1240px] grid-cols-1 gap-4 md:grid-cols-2">
         {posts.map((post) => (
           <div key={post.slug} className="flex flex-col gap-2 py-4">
+            <img
+              src={post.cover}
+              alt={post.title}
+              className="h-auto w-full rounded-lg"
+            />
             <Link href={`/posts/${post.slug}`}>
-              <h2 className="text-2xl font-bold">{post.title}</h2>
+              <h2 className="text-xl font-bold">{post.title}</h2>
             </Link>
-            <p className="text-lg">{post.description}</p>
-            <div className="flex items-center gap-2">
+            <p className="text-base">{post.description}</p>
+            <hr className="opacity-20" />
+            <div className="flex items-center gap-2 text-sm">
               <span className="text-accent">By {post.author}</span>
               <span>•</span>
               <span>{post.timeToRead} min read</span>
             </div>
-            <div className="flex gap-2">
+            <div className="flex gap-2 text-sm">
               {post.tags.map((tag) => (
                 <span key={tag} className="text-accent text-sm">
                   #{tag}

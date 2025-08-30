@@ -20,7 +20,7 @@ export default function NavBar() {
   }
 
   return (
-    <nav className="color_transition fixed left-0 top-0 z-50 flex w-full flex-col items-center">
+    <nav className="color_transition bg-background fixed left-0 top-0 z-50 flex w-full flex-col items-center">
       <div className="border-body color_transition max-w-420 flex h-16 w-full items-center justify-between gap-4 border-b px-3 py-1.5">
         <Link
           aria-label="home page"
@@ -29,47 +29,59 @@ export default function NavBar() {
         >
           <Logo />
         </Link>
-        <Search
+        {/* <Search
           focused={focused}
           setFocused={setFocused}
           search={search}
           setSearch={setSearch}
-        />
+        /> */}
         <div className="flex items-center gap-2">
-          <button
-            onClick={() => {
-              setTheme(theme === 'dark' ? 'light' : 'dark');
-            }}
-            aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-            className="border-accent bg-clear flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg border hover:opacity-80"
-          >
-            <div>
-              {theme === 'dark' ? (
-                <Icon
-                  icon="f7:moon-stars-fill"
-                  className="text-accent text-2xl"
-                />
-              ) : (
-                <Icon
-                  icon="mynaui:sun-solid"
-                  className="text-accent text-2xl"
-                />
-              )}
-            </div>
-          </button>
-          <button
-            onClick={() => {
-              setFocused(!focused);
-            }}
-            aria-label="search toggle"
-            className="border-accent bg-clear flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg border hover:opacity-80 md:hidden"
-          >
-            <Icon icon="eva:search-outline" className="text-accent text-2xl" />
-          </button>
+          {/* <Link className="hover:underline" href="/posts">
+            All Posts
+          </Link> */}
+
+          {/* <Link className="hover:underline" href="/about">
+            About
+          </Link> */}
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => {
+                setTheme(theme === 'dark' ? 'light' : 'dark');
+              }}
+              aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+              className="border-accent bg-clear flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg border hover:opacity-80"
+            >
+              <div>
+                {theme === 'dark' ? (
+                  <Icon
+                    icon="f7:moon-stars-fill"
+                    className="text-accent text-2xl"
+                  />
+                ) : (
+                  <Icon
+                    icon="mynaui:sun-solid"
+                    className="text-accent text-2xl"
+                  />
+                )}
+              </div>
+            </button>
+            <button
+              onClick={() => {
+                setFocused(!focused);
+              }}
+              aria-label="search toggle"
+              className="border-accent bg-clear flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg border hover:opacity-80 md:hidden"
+            >
+              <Icon
+                icon="eva:search-outline"
+                className="text-accent text-2xl"
+              />
+            </button>
+          </div>
         </div>
       </div>
 
-      <div className="border-body color_transition max-w-420 flex h-8 w-full items-center justify-between border-b px-3.5">
+      {/* <div className="border-body color_transition max-w-420 flex h-8 w-full items-center justify-between border-b px-3.5">
         <div className="text-body font-display text-basefont-medium flex items-center gap-4">
           <Link className="hover:underline" href="/posts">
             Posts
@@ -81,7 +93,7 @@ export default function NavBar() {
             About
           </Link>
         </div>
-      </div>
+      </div> */}
     </nav>
   );
 }
